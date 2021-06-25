@@ -1,0 +1,74 @@
+{% extends 'index.html'%}
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+.cancercontent {
+  border-radius: 15px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: white;
+  font-family: Poppins; 
+}
+.btn1 {
+  text-decoration: none;
+  background-color: #095A25;
+  color: #FFFFFF;
+  padding: 4px 22px;
+  margin: 5px;
+  font-size: 15px;
+  font-family: Poppins;  
+  border-radius: 20px;
+  transition: 0.5s;  
+  text-align: center;
+  }
+  
+.btn1:hover {
+  transition: 0.3s;
+  color: black;
+  font-weight: bold;
+  background-color: #C0FCD5;
+  padding: 6px 30px;
+  }
+
+
+</style>
+{% endblock %}
+{% block body %}
+<body style="background-color: #C0FCD5;">
+<div class='cancercontent'>
+<h2 style="font-weight: bold; text-align: center;">Breast Cancer Prediction</h2><br>
+<form method="post">
+    {% csrf_token %}
+{% for field in form %}
+
+    <div class="row">
+       <div class="col-md-5 col-md-offset-1">    
+        {{ field.label_tag }}
+       </div> 
+       <div class="col-md-6">
+         {{ field }}
+       </div>
+    </div>
+
+    <br>
+
+ {% endfor %}
+<div style="text-align: center;"><input type="submit" class="btn1" value="Predict"></div>
+</form>
+
+{% if result is None%}
+<h4 style="font-weight:bold;text-align: center;">__Your Result will Show Here__ </h4>
+{% endif %}
+{% ifequal result 1 %}
+<h4 style="font-weight:bold;color: red;text-align: center;">Alert! Your Result is Positive!!! Immediately Consult Doctor!! </h4>
+{% endifequal%}
+{% ifequal result 0 %}
+<h4 style="font-weight:bold;color: red;text-align: center;">Congrats!! Your Result is Negative! You are Healthy! </h4>
+{% endifequal %}
+{% ifequal result 5 %}
+  <h4 style="font-weight:bold;color: red;text-align: center;">Invalid Value!! Please Enter Valid Value!!</h4>
+  {% endifequal %}
+</div>
+{% endblock%}

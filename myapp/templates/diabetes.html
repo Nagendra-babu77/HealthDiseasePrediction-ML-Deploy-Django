@@ -1,0 +1,97 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags %}
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+.contentdiabetes {
+  max-width: 600px;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: white;
+  font-family: Poppins;
+}
+.btn3 {
+  text-decoration: none;
+  background-color: #095A25;
+  color: #FFFFFF;
+  padding: 4px 22px;
+  margin: 5px;
+  font-size: 15px;
+  font-family: Poppins;  
+  border-radius: 20px;
+  transition: 0.5s;  
+  text-align: center;
+  }
+  
+.btn3:hover {
+  transition: 0.3s;
+  color: black;
+  font-weight: bold;
+  background-color: #C0FCD5;
+  padding: 6px 30px;
+  }
+
+
+</style>
+{% endblock %}
+
+{% block body %}
+<body style="background-color: #C0FCD5;">
+<div class='contentdiabetes'>
+<h2 style="text-align: center;font-weight: bold;">Diabetes Prediction</h2><br>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="row">
+       <div class="col-md-6">    
+        {{ form.Pregnancies |as_crispy_field }}
+       </div> 
+       <div class="col-md-6">
+         {{ form.Glucose|as_crispy_field }}
+       </div>
+    </div><br>
+    <div class="row">
+       <div class="col-md-6">    
+        {{ form.Blood_Pressure |as_crispy_field }}
+       </div> 
+       <div class="col-md-6">
+         {{ form.Skin_Thickness|as_crispy_field }}
+       </div>
+    </div><br>
+    <div class="row">
+       <div class="col-md-6">    
+        {{ form.Insulin |as_crispy_field }}
+       </div> 
+       <div class="col-md-6">
+         {{ form.BMI|as_crispy_field }}
+       </div>
+    </div><br>
+    <div class="row">
+       <div class="col-md-6">    
+        {{ form.Diabetes_Pedigree_Function |as_crispy_field }}
+       </div> 
+       <div class="col-md-6">
+         {{ form.Age|as_crispy_field }}
+       </div>
+    </div>
+
+
+    
+<div style="text-align: center;"><input type="submit" class="btn3" value="Predict"></div>
+</form>
+{% if result is None%}
+<h4 style="text-align: center;font-weight: bold;">__Your Result will Show Here__ </h4>
+{% endif %}
+{% ifequal result 1 %}
+<h4 style="color: red;text-align: center;font-weight: bold;">Alert! Your Result is Positive!!! Immediately Consult Doctor!! </h4>
+{% endifequal%}
+{% ifequal result 0 %}
+<h4 style="color: red;text-align: center;font-weight: bold;">Congrats!! Your Result is Negative! You are Healthy! </h4>
+{% endifequal %}
+{% ifequal result 5 %}
+  <h4 style="font-weight:bold;color: red;text-align: center;">Invalid Value!! Please Enter Valid Value!!</h4>
+  {% endifequal %}
+</div>
+{% endblock%}

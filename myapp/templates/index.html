@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Health Diease Predictiion-ML-Django, Developer: Nagendrababu P ">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    <script src="{% static 'js/script.js'%}" type='text/javascript'></script>
+    {% block head %}
+    {% endblock %}
+  </head>
+    
+<body>
+
+  
+    <div id="rc_logo">
+      <a href="{% url 'index' %}" title="Logo">Health Disease Prediction</a>
+    </div>  
+    <div class="rc_nav" id="centered_nav">
+      <a href="{% url 'index' %}" title="Home">Home</a>
+      <a href="{% url 'cancer' %}" title="BreastCancer">Breast Cancer</a>
+      <a href="{% url 'heart' %}" title="Heart Disease">Heart Disease</a>
+      <a href="{% url 'diabetes' %}" title="Diabetes">Diabetes</a>
+      <a href="javascript:void(0);" title="Menu" style="font-size:18px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+{% block body%}
+<div class="rc_content">
+  <h2>Welcome to Django Web Application !</h2>
+  <p style="font-size:20px">I have deployed Machine Learning Models which are used predict the heart disease, breast cancer and diabetes on this web application. I will add so more prediction soon. </p>
+</div>
+<div class="content">
+  <p>This is Machine Learning based medical web application. The prediction about the disease is made with the help of the Machine Learning model which itself is trained on the thousands of the datasets.</p>
+<p>I gonna be describing about the types of the diseases which gonna be getting employed in this webapp.</p>
+</div>
+<div class="content">
+  <p style="font-weight: bold;"><u>Breast Cancer</u></p>
+  <img src="https://previews.123rf.com/images/dvarg/dvarg1804/dvarg180400031/99310157-banner-with-breast-cancer-awareness-realistic-ribbon-design-template-for-info-graphics-or-websites-m.jpg" width="380px">
+  <p style="text-align: left;">Breast cancer is cancer that forms in the cells of the breasts. After skin cancer, breast cancer is the most common cancer diagnosed in women in the United States. Breast cancer can occur in both men and women, but it's far more common in women.</p>
+  <p style="text-align:left;"><u>Symptoms</u></p>
+  <p style="text-align:left"><ul style="text-align:left"><li>A breast lump or thickening that feels different from the surrounding tissue</li>
+<li>Change in the size, shape or appearance of a breast</li>
+<li>Changes to the skin over the breast, such as dimpling</li>
+<li>A newly inverted nipple</li>
+<li>Peeling, scaling, crusting or flaking of the pigmented area of skin surrounding the nipple (areola) or breast skin</li>
+<li>Redness or pitting of the skin over your breast, like the skin of an orange</li> </ul></p>
+<p style="text-align:left;"><u>Causes</u></p>
+<p style="text-align:left">Doctors know that breast cancer occurs when some breast cells begin to grow abnormally. These cells divide more rapidly than healthy cells do and continue to accumulate, forming a lump or mass. Cells may spread (metastasize) through your breast to your lymph nodes or to other parts of your body.Breast cancer most often begins with cells in the milk-producing ducts (invasive ductal carcinoma). Breast cancer may also begin in the glandular tissue called lobules (invasive lobular carcinoma) or in other cells or tissue within the breast.</p>
+<a href="{% url 'cancer' %}" title="BreastCancer"><p style="text-align:left">Go to prediction</p></a>
+
+</div>
+
+<div class="content">
+  <p style="font-weight: bold;"><u>Heart Disease</u></p>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfVLPGt584FJADzuBF2KGwU554ZnhGcprmiiJeFOJUGycJJfa-gYsgK7dQEouofXqwjIA&usqp=CAU" width="380px">
+  <p style="text-align: left;">Heart disease describes a range of conditions that affect your heart. Heart diseases include, Blood vessel disease, Heart rhythm problems (arrhythmias), Heart defects you're born with (congenital heart defects), Heart valve disease, Disease of the heart muscle, Heart infection. Many forms of heart disease can be prevented or treated with healthy lifestyle choices.</p>
+  <p style="text-align:left;"><u>Symptoms</u></p>
+  <p style="text-align:left"><ul style="text-align:left"><li>Chest Discomfort</li>
+<li>Nausea, Indigestion, Heartburn, or Stomach Pain</li>
+<li>Pain that Spreads to the Arm</li>
+<li>You Feel Dizzy or Lightheaded</li>
+<li>Throat or Jaw Pain</li>
+<li>You Get Exhausted Easily, Snoring, Sweating</li> 
+<li>Your Legs, Feet, and Ankles Are Swollen</li>
+<li>Irregular Heart Beat</li></ul></p>
+<p style="text-align:left;"><u>Causes</u></p>
+<p style="text-align:left"><ul style="text-align:left"><li>damage to all or part of the heart</li>
+<li>a problem with the blood vessels leading to or from the heart</li>
+<li>a low supply of oxygen and nutrients to the heart</li>
+<li>high blood pressure, high cholesterol, smoking</li>
+<li>a high intake of alcohol, overweight and obesity, diabetes</li>
+<li>low activity levels</li>
+<li>high stress and anxiety levels</li> 
+</ul></p>
+<a href="{% url 'heart' %}" title="Heart Disease"><p style="text-align:left">Go to prediction</p></a>
+</div>
+
+<div class="content">
+  <p style="font-weight: bold;"><u>Diabetes</u></p>
+  <img src="https://live.staticflickr.com/4515/26679470379_2bd995e842_b.jpg" width="380px">
+  <p style="text-align: left;">&nbsp &nbsp Diabetes mellitus, commonly known as diabetes, is a metabolic disease that causes high blood sugar. The hormone insulin moves sugar from the blood into your cells to be stored or used for energy. With diabetes, your body either doesn’t make enough insulin or can’t effectively use the insulin it does make.</p>
+  <p style="text-align:left;"><u>Symptoms</u></p>
+  <p style="text-align:left"><ul style="text-align:left"><li>increased hunger</li>
+<li>increased thirst</li>
+<li>weight loss</li>
+<li>frequent urination</li>
+<li>blurry vision</li>
+<li>extreme fatigue</li>
+<li>sores that don’t heal</li></ul></p>
+<p style="text-align:left;"><u>Causes</u></p>
+<p style="text-align:left"><ul style="text-align:left"><li>Viral or bacterial infection</li>
+<li>Chemical toxins within food</li>
+<li>Unidentified component causing autoimmune reaction</li>
+<li>Obesity</li>
+<li>Living a sedentary lifestyle</li>
+<li>Increasing age</li>
+<li>Bad die</li>
+ 
+</ul></p>
+<a href="{% url 'diabetes' %}" title="Diabetes"><p style="text-align:left">Go to prediction</p></a>
+</div>
+<div class="content">
+  <p style="font-weight: bold;">Creator : Nagendrababu P</p>
+</div>
+
+{%endblock%}
+
+ </body>
+ </html>
