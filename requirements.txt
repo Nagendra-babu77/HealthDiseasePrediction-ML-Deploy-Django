@@ -4,4 +4,10 @@ joblib==1.0.1
 gunicorn==20.1.0
 whitenoise==5.2.0
 django-heroku==0.3.1
-
+imbalanced-learn==0.8.0
+matplotlib==3.4.1
+numpy==1.19.5
+pandas==1.2.4
+scikit-learn==0.24.2
+seaborn==0.11.1
+xgboost==1.4.2
